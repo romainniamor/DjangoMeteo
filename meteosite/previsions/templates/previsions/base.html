@@ -1,0 +1,137 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>previsions</title>
+    <!-- IMPORT fa & css & bulma & js & swiper -->
+     <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="{% static 'previsions/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'previsions/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'previsions/css/owl.theme.default.min.css' %}">
+    <script src="{% static 'previsions/js/main.js' %}"></script>
+
+</head>
+<body>
+<div class="hero is-fullheight background-hero">
+    <div class="hero-head">
+        <nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="http://localhost:8000/">
+                    <span class="is-uppercase has-text-weight-bold has-text-white">application météo</span>
+                </a>
+            </div>
+
+
+
+
+            <div id="navbarMenu" class="navbar-menu is-active has-background-dark">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                <a href="/previsions/logout" class="button is-light mx-1">
+                    {% if user.is_authenticated %}
+                    Se déconnecter de ({{user.first_name}})
+                    {% else %}
+                    Se connecter
+                    {% endif %}
+                </a>
+            </div>
+
+                    <div class="navbar-item">
+                        <form action="{% url 'previsions:display_previsions_ville'%}" method="post">
+                            {% csrf_token %}
+                            <div class="block mr-6">
+                                <div class="columns is-mobile is-gapless ">
+                                    <div class="column is-full ">
+                                        <div class="control">
+                                            <input name="ville" class="input" type="text" placeholder="Ville...">
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="control">
+                                            <button class="button mx-1">
+                                            <span class="icon">
+                                              <i class="fas fa-search"></i>
+                                            </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </nav>
+    </div>
+
+{% block content %}
+{% endblock content %}
+
+
+</div>
+
+
+
+
+
+<script src="{% static 'previsions/js/jquery.min.js' %}"></script>
+<script src="{% static 'previsions/js/owl.carousel.min.js' %}"></script>
+
+<script>
+
+
+
+
+
+
+    $('.owl-carousel').owlCarousel({
+    loop:false,
+    margin:10,
+
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})
+
+
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+
+
+{% if user.groups.all.0.name == 'favoris' %}
+                <a class="navbar-item" href="/previsions/favoris" >Favoris</a>
+                {% endif %} -->
+
+

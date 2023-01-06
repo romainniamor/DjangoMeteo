@@ -1,0 +1,52 @@
+{% extends 'previsions/base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+
+<div class="previsionsTitle">
+    <p>Previsions pour la ville de {{ville}}</p>
+</div>
+
+
+<div class="previsionsCard">
+
+    <div class="owl-carousel owl-theme">
+        {% for prevision in previsions_affichage %}
+
+
+            <div class="card">
+
+                <div class="cardHeader">
+                  <span>{{prevision.jour}}</span>
+                </div>
+
+                <div class="cardBody">
+                    <img src="{% static prevision.icon %}">
+                    <span>{{prevision.temperature|floatformat:0}}°</span>
+                </div>
+
+                <div class="cardFooter">
+
+                  <div class="cardDescription">
+                    <span>{{prevision.description}}</span>
+                  </div>
+
+                  <div class="wind">
+                    <i class="fa-solid fa-wind"></i>
+                    <span>{{prevision.force_vent|floatformat:0}} Km/h/h</span>
+                  </div>
+
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+
+</div>
+
+{% endblock content %}
