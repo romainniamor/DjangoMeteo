@@ -41,6 +41,12 @@ class UIHelper:
             return "rainy-6.svg"
         elif weather_status == MeteoCommon.STATUT_API_FORTE_PLUIE:
             return "rainy-7.svg"
+        elif weather_status == MeteoCommon.STATUT_API_NEIGE:
+            return "snowy-5.svg"
+        elif weather_status == MeteoCommon.STATUT_API_LEGERE_NEIGE:
+            return "snowy-4.svg"
+
+
         else:
             return "Icon-round-Question_mark.svg"
 

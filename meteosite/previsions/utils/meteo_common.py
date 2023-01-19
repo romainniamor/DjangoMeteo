@@ -38,8 +38,12 @@ class MeteoCommon:
     STATUT_API_LEGERE_PLUIE = "légère pluie"
     STATUT_API_LEGERE_COUVERT = "couvert"
     STATUT_API_BRUME = "brume"
-    STATUT_API_PLUIE_MODEREE = "pluie modérée",
-    STATUT_API_FORTE_PLUIE = "forte pluie",
+    STATUT_API_PLUIE_MODEREE = "pluie modérée"
+    STATUT_API_FORTE_PLUIE = "forte pluie"
+    STATUT_API_NEIGE = "chutes de neige"
+    STATUT_API_LEGERE_NEIGE = "légères chutes de neige"
+
+
 
     STATUT_IMAGE_METEO_PLUIE = 0
     STATUT_IMAGE_METEO_ORAGE = 1
